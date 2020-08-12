@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+h1 {
+	text-align: center;
+}
+
+.table-responsive-md {
+	max-height: 500px;
+	min-height: 300px;
+	min-width: min-content;
+	overflow: auto;
+}
+
+table {
+	white-space: nowrap;
+	text-align: center;
+}
+
+th.col {
+	width: auto;
+}
+
+.bi.bi-people {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+.dropdown-toggle::after {
+	margin-left: 0.270em;
+}
+
+.table td, .table th {
+	vertical-align: middle;
+}
+
+#gradeselectgroup {
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+#gradechange {
+	width: 100%;
+}

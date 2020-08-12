@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="recommendation">
+  	<select id="upconfirm" parameterType="int" resultType="int">
+		select count(*) from p_boardrecommendation where p_tableseq = #{p_tableseq} and p_recommendation = 'YES'
+	</select>
+	<select id="downconfirm" parameterType="int" resultType="int">
+		select count(*) from p_boardrecommendation where p_tableseq = #{p_tableseq} and p_recommendation = 'NO'
+	</select>
+	<select id="bring" parameterType="int" resultType="hashmap">
+		SELECT p_recommendation, COUNT(p_recommendation) count
+		FROM p_boardrecommendation 
+		WHERE p_tableseq = #{p_tableseq}
+		GROUP BY p_recommendation 
+		ORDER BY p_recommendation desc
+	</select>
+	<select id="findduplicates" parameterType="recommendation" resultType="int">
+		select * from p_boardrecommendation where p_tableseq = #{p_tableseq} and p_recommendation = #{p_recommendation} and p_writer = #{p_writer}
+	</select>
+	<insert id="insertrecommendation" parameterType="recommendation">
+		insert into p_boardrecommendation values(#{p_tableseq}, #{p_recommendation}, #{p_writer})
+	</insert>
+	<delete id="deletecommendation" parameterType="recommendation">
+		delete p_boardrecommendation where p_tableseq = #{p_tableseq} and p_recommendation = #{p_recommendation} and p_writer = #{p_writer}
+	</delete>
+  </mapper>

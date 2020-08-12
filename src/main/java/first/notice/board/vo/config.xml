@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!--0. type alias를 정의 -->
+	<typeAliases>
+		<typeAlias type="first.notice.board.vo.UserVO" alias="user" /> <!-- alias 등록 -->
+		<typeAlias type="first.notice.board.vo.BoardVO" alias="board" />
+		<typeAlias type="first.notice.board.vo.CommentVO" alias="comment" />
+		<typeAlias type="first.notice.board.vo.RecommentVO" alias="recomment" />
+		<typeAlias type="first.notice.board.vo.RecommendationVO" alias="recommendation" />
+	</typeAliases>
+
+
+
+</configuration>

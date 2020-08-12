@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment">
+	<select id="commentlist" parameterType="int" resultType="comment">
+		select * from p_comment where p_tableseq = #{p_seq}
+	</select>
+	<insert id="commentinsert" parameterType="comment">
+		insert into p_comment values(#{p_tableseq}, (select nvl(max(p_seq)+1, 1) from p_comment as sub ), #{p_password}, #{p_writer} , now(), #{p_content}, #{p_commentip})
+	</insert>
+	
+	<delete id="commentDelete" parameterType="hashmap">
+		delete from p_comment where p_seq = #{p_seq} and p_password = #{p_password}
+	</delete>
+	
+	<delete id="commentDeleteMaster" parameterType="int">
+		delete from p_comment where p_seq = #{p_seq}
+	</delete>
+	
+	<select id="commentChart" parameterType="string" resultType="hashmap">
+		select substr(p_date, 1, 7) as month, count(*) as count from p_comment
+		group by month
+		<if test="value != null">
+		having month like '${value}%'		
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.confirmText {
+	text-align: center;
+	align-self: center;
+	font-size: 12px;
+	
+}
+
+#available {
+	color: green;
+}
+
+#unavailable {
+	color: red;
+}
+
+#labelconfig {
+	margin-left: 15px;
+}

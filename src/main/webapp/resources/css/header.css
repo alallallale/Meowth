@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+body {
+	padding-top: 70px;
+}
+
+#red {
+	color: red;
+}
+
+a.d-flex:hover {
+	color: white;
+}
+.home{
+	color: #b3b3b3;
+}

@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+	margin-left: auto;
+}
+
+.gallview_head {
+	padding-bottom: 30px;
+}
+
+.content {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding: 1.5rem;
+	font-size: 17px;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+hr {
+	border: 1px solid #eee;
+	margin-top: 0rem;
+	margin-bottom: 0rem;
+}
+
+.detail_date::before {
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 12px;
+	background: #ccc;
+	margin: 0 6px 0 10px;
+	vertical-align: -2px;
+}
+
+textarea {
+	resize: none;
+}
+
+.form-row {
+	justify-content: center;
+}
+
+.comment {
+	padding: 1rem;
+}
+
+.commentcontent {
+	margin-bottom: 1rem;
+}
+
+.commentposition.recomment {
+	width: 90%;
+	margin-left: auto;
+}
+
+.recommentform {
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	padding-top: 1rem;
+	padding-left: 1rem;
+	padding-bottom: 1rem;
+	padding-right: 1rem;
+}
+
+.recommentContents {
+	margin-left: 10%;
+	background-color: moccasin;
+	border-bottom: 1px solid gray;
+	border-radius: 0.5rem;
+}

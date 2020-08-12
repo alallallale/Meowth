@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.profile{
+	margin:auto;
+}
+tr .tabletitle{
+	width:40%;
+	font-weight: 700;
+}
+.myPagebtn{
+	margin-top: 1rem;
+	text-align: center;
+}
+#myPageUpdate{
+	margin-right:10%;
+}

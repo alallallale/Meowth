@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+.container{
+	background-color: white;
+	border-radius: 1rem;
+	text-align: center;
+	padding: 20px;
+}
+div img{
+	border-radius: 30px;
+}

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.container {
+	text-align: -webkit-center;
+}
+
+.bi.bi-bar-chart-fill {
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+#chartselectgroup {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+button.lastYear {
+	float: left;
+}
+
+button.nextYear {
+	float: right;
+}

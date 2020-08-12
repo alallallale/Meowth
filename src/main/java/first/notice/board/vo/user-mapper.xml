@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+	<insert id="userinsert" parameterType="user">
+		insert into p_user
+		values(#{p_userid}, #{p_password}, #{p_name}, #{p_phone}, #{p_email},
+		now(), #{p_birth}, 'single')
+	</insert>
+	<select id="signin" parameterType="hashmap" resultType="user">
+		select
+		p_userid, P_name, p_grade from p_user where p_userid = #{p_userid} and
+		p_password = #{p_password}
+	</select>
+	<select id="loadmyaccount" parameterType="String"
+		resultType="user">
+		select * from p_user where p_userid = #{p_userid}
+	</select>
+	<delete id="userdelete" parameterType="user">
+		delete from p_user where
+		p_userid = #{p_userid} and p_password = #{p_password}
+	</delete>
+	<update id="accountupdate" parameterType="user">
+		update p_user 
+		set p_password = #{p_password}, p_name = #{p_name}, p_phone = #{p_phone}, p_email = #{p_email}, p_birth = #{p_birth} 
+		where p_userid = #{p_userid}
+	</update>
+	<select id="idconfirm" parameterType="String" resultType="String">
+		select p_userid from p_user where p_userid = #{p_userid}
+	</select>
+	<select id="nameconfirm" parameterType="String" resultType="String">
+		select p_userid from p_user where p_name = #{p_name}
+	</select>
+	<select id="userlist" parameterType="hashmap" resultType="user">
+		select p_userid, p_date, p_grade from p_user order by ${sortType} ${orderType}
+	</select>
+	<select id="usergradelist" parameterType="hashmap" resultType="user">
+		select p_userid, p_date, p_grade from p_user where p_grade = #{grade} order by ${sortType} ${orderType}
+	</select>
+	<update id="gradeupdate" parameterType="hashmap" >
+		update p_user set p_grade = #{grade} where p_userid = #{userid}
+	</update>
+	<delete id="userdeletemaster" parameterType="string">
+		delete from p_user where p_userid = #{userid}
+	</delete>
+	<delete id="alluserdelete">
+		delete from p_user where p_grade in('single', 'double', 'triple')
+	</delete>
+	<select id="accountchart" parameterType="string"
+		resultType="hashmap">
+		select substr(p_date, 1, 7) as month, count(*) as count from p_user
+		group by month
+		<if test="value != null">
+		having month like '${value}%'		
+		</if>
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="recomment">
+	<select id="recommentlist" parameterType="int"
+		resultType="recomment">
+		select * from p_recomment where p_tableseq =
+		#{p_tableseq}
+	</select>
+	<insert id="recommentinsert" parameterType="recomment">
+		insert into p_recomment
+		values(#{p_tableseq},#{p_commentseq}, (select nvl(max(p_recommentseq)+1, 1)
+		from p_recomment
+		as sub ), #{p_repassword}, #{p_rewriter} , now(),
+		#{p_recontent},
+		#{p_recommentip})
+	</insert>
+	<delete id="recommentDelete" parameterType="hashmap">
+		delete from p_recomment
+		where p_recommentseq = #{p_recommentseq} and p_repassword =
+		#{p_repassword}
+	</delete>
+	<delete id="recommentDeleteMaster" parameterType="int">
+		delete from
+		p_recomment where p_recommentseq = #{p_recommentseq}
+	</delete>
+</mapper>
