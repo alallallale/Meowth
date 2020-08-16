@@ -319,8 +319,9 @@ public class HomeController {
 		logger.info("게시판 상세");
 		boardService.boardviewcountup(p_seq);
 		BoardVO boardvo = boardService.boarddetail(p_seq);
-		SimpleDateFormat day = new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
+		SimpleDateFormat day = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 		String stringDate = day.format(boardvo.getP_date());
+		System.out.println(stringDate);
 		int recommendationCount = recommendationService.upconfirm(p_seq);
 		int commentCount = commentService.commentList(p_seq).size() + recommentService.recommentList(p_seq).size();
 
